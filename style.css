@@ -1,0 +1,53 @@
+@keyframes bg-animate {
+    0% {
+        background-position: left;
+    }
+    100% {
+        background-position: right;
+    }
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 100%;
+    padding: 1.5rem;
+    background-color: #8EC5FC;
+    background-image: linear-gradient(62deg, #fd00e8 0%, #db63a5 100%);
+    background-size: 1000%;
+    animation: bg-animate 10s alternate infinite;
+}
+
+.container {
+    position: relative;
+    display: grid;
+    gap: 2rem;
+}
+
+img {
+    width: 25%;
+}
+
+.container .top img {
+    width: 30%;
+    margin: 1rem 0 1rem 0;
+}
+
+.container .middle img {
+    padding: 0 .5rem 0 .5rem;
+    cursor: pointer;
+}
+
+.container .bottom img {
+    margin-top: 1rem;
+    width: 30%;
+}

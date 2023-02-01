@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game JavaScript | Batu Gunting Kertas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">    
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="top">
+            <h1>Computer's Choose</h1>
+            <img id="question" src="images/question.png" alt="question">
+            <h1>Your Choose</h1>
+        </div>
+        <div class="middle">
+            <img id="stone" src="images/image1.png" alt="stone">
+            <img id="scissors" src="images/image2.png" alt="scissors">
+            <img id="paper" src="images/image3.png" alt="paper">
+        </div>
+        <div class="bottom">
+            <h1>Result......</h1>
+            <img id="result" src="images/question.png" alt="result">
+        </div>
+    </div>
+
+    <script>
+
+        let stone = document.querySelector('#stone');
+        let scissors = document.querySelector('#scissors');
+        let paper = document.querySelector('#paper');
+        let computer = document.querySelector('#question');
+        let result = document.querySelector('#result');
+
+        stone.addEventListener('click', function(){
+            let randomNumber = Math.ceil(Math.random() * 3);
+
+            var audio = new Audio('Sounds/Click.mp3');
+            audio.play();
+
+            computer.setAttribute("src", "images/image" + randomNumber + ".png");
+
+            if (randomNumber === 2){
+                result.setAttribute("src", "images/prize.png");
+                var audioWinner = new Audio("Sounds/Winner.mp3");
+                audioWinner.play();
+            } else if(randomNumber === 3){
+                result.setAttribute("src", "images/lose.png");
+                var audioLosser = new Audio("Sounds/Losser.mp3");
+                audioLosser.play();
+            } else {
+                result.setAttribute("src", "images/draw.png");
+                var audioDraw = new Audio("Sounds/Drawgame.mp3");
+                audioDraw.play();
+            }
+        });
+        scissors.addEventListener('click', function(){
+            let randomNumber = Math.ceil(Math.random() * 3);
+            
+            var audio = new Audio('Sounds/Click.mp3');
+            audio.play();
+
+            computer.setAttribute("src", "images/image" + randomNumber + ".png");
+
+            if (randomNumber === 1){
+                result.setAttribute("src", "images/lose.png");
+                var audioLosser = new Audio("Sounds/Losser.mp3");
+                audioLosser.play();
+            } else if(randomNumber === 3){
+                result.setAttribute("src", "images/prize.png");
+                var audioWinner = new Audio("Sounds/Winner.mp3");
+                audioWinner.play();
+            } else {
+                result.setAttribute("src", "images/draw.png");
+                var audioDraw = new Audio("Sounds/Drawgame.mp3");
+                audioDraw.play();
+            }
+        });
+        paper.addEventListener('click', function(){
+            let randomNumber = Math.ceil(Math.random() * 3);
+            
+            var audio = new Audio('Sounds/Click.mp3');
+            audio.play();
+
+            computer.setAttribute("src", "images/image" + randomNumber + ".png");
+
+            if (randomNumber === 1){
+                result.setAttribute("src", "images/prize.png");
+                var audioWinner = new Audio("Sounds/Winner.mp3");
+                audioWinner.play();
+            } else if(randomNumber === 2){
+                result.setAttribute("src", "images/lose.png");
+                var audioLosser = new Audio("Sounds/Losser.mp3");
+                audioLosser.play();
+            } else {
+                result.setAttribute("src", "images/draw.png");
+                var audioDraw = new Audio("Sounds/Drawgame.mp3");
+                audioDraw.play();
+            }
+        });
+
+    </script>
+    
+</body>
+</html>
